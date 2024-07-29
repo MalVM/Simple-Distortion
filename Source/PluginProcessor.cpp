@@ -202,8 +202,8 @@ void DistortionAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, ju
 
         
 
-        float wetL = dryL*(1-params.distortion)*tanh(dryL*params.distortion);
-        float wetR = dryR * (1 - params.distortion) * tanh(dryR * params.distortion);
+        float wetL = tanh(dryL*params.distortion);
+        float wetR = tanh(dryR * params.distortion);
 
         float mixL = dryL + wetL * params.mix;
         float mixR = dryR + wetR * params.mix;
