@@ -28,6 +28,8 @@ public:
     void resized() override;
 
 private:
+    DistortionAudioProcessor& audioProcessor;
+
     RotaryKnob outputGainKnob{ "Gain", audioProcessor.apvts, gainParamID, true };
     RotaryKnob mixKnob{ "Mix", audioProcessor.apvts, mixParamID };
     RotaryKnob disGainKnob{ "Distortion", audioProcessor.apvts, distortionParamID};
@@ -43,10 +45,6 @@ private:
     juce::GroupComponent driveGroup, filterGroup, mixGainGroup;
 
     RotaryKnobLookAndFeel mainLF;
-
-    // This reference is provided as a quick way for your editor to
-    // access the processor object that created it.
-    DistortionAudioProcessor& audioProcessor;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DistortionAudioProcessorEditor)
 };
